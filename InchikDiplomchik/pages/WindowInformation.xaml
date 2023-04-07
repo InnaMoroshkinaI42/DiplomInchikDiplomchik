@@ -1,0 +1,291 @@
+﻿<Window x:Class="InchikDiplomchik.pages.WindowInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InchikDiplomchik.pages"
+        mc:Ignorable="d"
+        Title="Подробная информация" Height="500" Width="860" >
+    <ScrollViewer>
+        <StackPanel >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="izm" Content="Изменить"  Style="{StaticResource ButtonOtchet}" />
+                <Button x:Name="pec" Content="Печать PDF"  Style="{StaticResource ButtonOtchet}" Click="pec_Click" />
+                <Button x:Name="clos" Content="Закрыть"  Style="{StaticResource ButtonOtchet}" Click="clos_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="number" Margin="5" HorizontalAlignment="Center"/>
+            <TabControl TabStripPlacement="Left" x:Name="Tabs1">
+                <TabItem Header="Договор" x:Name="dogovor1">
+
+                    <StackPanel x:Name="dog">
+                        <TextBlock Text="ДОГОВОР НА ОКАЗАНИЕ УСЛУГ " Margin="5" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="г. Минусинск" Margin="3 0 555 0" FontSize="15"  />
+                            <TextBlock x:Name="dataDog" FontSize="15" />
+                        </StackPanel>
+                        <TextBlock FontWeight="Medium"  Text="__ООО М-Сервис__" FontSize="15" HorizontalAlignment="Center"   TextDecorations="Underline" Margin="5 5 5 0"/>
+                        <TextBlock Text="(наименование организации или ф., и., о. ИП)" FontSize="10" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="действующее на основании" FontSize="15" Margin="3"/>
+                            <StackPanel Margin="3">
+                                <TextBlock Text="Устава" FontSize="15" HorizontalAlignment="Center" TextDecorations="Underline" FontWeight="Medium" />
+                                <TextBlock Text="(устава, доверенности, свидетельства о регистрации с указанием его данных)" FontSize="10" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="именуемое в дальнейшем Исполнитель, и" FontSize="15" Margin="3"/>
+                            <StackPanel Margin="3">
+                                <TextBox BorderBrush="Transparent" x:Name="fiozak" FontSize="15" HorizontalAlignment="Center" TextDecorations="Underline" FontWeight="Medium" />
+                                <TextBlock Text=" (ФИО физического лица)" FontSize="10" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="паспортные данные "  FontSize="15" Margin="3"/>
+                            <TextBox BorderBrush="Transparent" FontSize="15" x:Name="pasportDan" TextDecorations="Underline" FontWeight="Medium" Margin="3"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="проживающий по адресу: "  FontSize="15" Margin="3"/>
+                            <TextBlock FontSize="15" x:Name="adressDoc" TextDecorations="Underline" FontWeight="Medium" Margin="3"/>
+                        </StackPanel>
+                        <TextBlock Text="именуемое в дальнейшем Заказчик, заключили настоящий договор о нижеследующем." FontSize="15" Margin="3"/>
+                        <TextBlock Text="1. Предмет договора" FontSize="15" FontWeight="Bold" Margin="3"/>
+                        <TextBlock Text="1.1. По договору возмездного оказания услуг Исполнитель обязуется по заданию Заказчика оказать услуги, указанные в п. 1.2 настоящего договора, а Заказчик обязуется принять и оплатить эти услуги." FontSize="15" TextWrapping="Wrap" Margin="3"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="1.2. Исполнитель обязуется оказать следующие услуги:" FontSize="15" Margin="3"/>
+                            <TextBlock FontSize="15" x:Name="usluga" TextDecorations="Underline" TextWrapping="Wrap" FontWeight="Medium" Margin="3"/>
+                        </StackPanel>
+                        <TextBlock Text="именуемые в дальнейшем Услуги" FontSize="15" Margin="3"/>
+                        <TextBlock Text="1.3. Срок, в течение которого Исполнитель обязан оказать услуги по настоящему договору, устанавливается: с" TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="15" x:Name="dataZakaza" TextDecorations="Underline" TextWrapping="Wrap" FontWeight="Medium" Margin="3"/>
+                            <TextBlock FontSize="15" Text=" до " TextDecorations="Underline" TextWrapping="Wrap" FontWeight="Medium" Margin="3"/>
+                            <TextBlock FontSize="15" x:Name="dataOkonZakaza" TextDecorations="Underline" TextWrapping="Wrap" FontWeight="Medium" Margin="3"/>
+                        </StackPanel>
+                        <TextBlock Text="В этот период Исполнитель самостоятельно определяет временные интервалы для оказания конкретных услуг, указанных в п. 1.2. настоящего договора, однако при этом о времени оказания услуг уведомляет Заказчика для того, чтобы последний мог принять их надлежащим образом. Исполнитель имеет право завершить оказание услуг досрочно." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="1.4. Услуги считаются оказанными после подписания акта приема-сдачи Услуг Заказчиком или его уполномоченным представителем." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2. Права и обязанности сторон " FontWeight="Bold" TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.1. Исполнитель обязан:"  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.1.1.Оказать Услуги с надлежащим качеством."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.1.2. Оказать Услуги в полном объеме в срок, указанный в п. 1.3. настоящего договора."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.1.3. Безвозмездно исправить по требованию Заказчика все выявленные недостатки, если в процессе оказания Услуг Исполнитель допустил отступление от условий договора, ухудшившее их качество, в течение 30 дней."   TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.2. Исполнитель вправе привлечь к оказанию услуг по настоящему договору третьих лиц с письменного согласия Заказчика."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.3. Заказчик обязан: "  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.3.1. Обеспечить условия для оказания Исполнителем услуг, в том числе "  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBox BorderBrush="Transparent" FontSize="15" x:Name="managerr" TextDecorations="Underline" TextWrapping="Wrap" FontWeight="Medium" Margin="3" HorizontalAlignment="Center"/>
+                        <TextBlock Text="(присутствие соответствующих сотрудников Заказчика во время оказания услуг, обеспечение информацией, доступ к базам данных и др.)"  TextWrapping="Wrap" FontSize="10" Margin="3"/>
+                        <TextBlock Text="2.3.2. Принять по акту приемо-сдачи услуг и оплатить услуги по цене, указанной в п. 3 настоящего договора, в течение 30 дней с момента подписания акта приема-сдачи Услуг."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.4. Заказчик имеет право:"  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.4.1. Во всякое время проверять ход и качество работы, выполняемой Исполнителем, не вмешиваясь в его деятельность."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="2.4.2. Отказаться от исполнения договора в любое время до подписания акта, уплатив Исполнителю часть установленной цены пропорционально части оказанных Услуг, выполненной до получения извещения об отказе Заказчика от исполнения договора."  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="3. Цена договора " FontWeight="Bold" TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="3.1. Цена настоящего договора составляет: "  TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                            <TextBlock x:Name="stoimost" FontSize="15" HorizontalAlignment="Center" TextDecorations="Underline" FontWeight="Medium" />
+                        </StackPanel>
+                        <TextBlock Text="4. Ответственность сторон" FontWeight="Bold" TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="4.1. За нарушение срока оказания Услуг, указанного в п. 1.4 настоящего договора, Исполнитель уплачивает пеню из расчета 5% от суммы договора за каждый день просрочки." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="4.2. За нарушение срока оплаты Услуг, указанного в п. 1.4 настоящего договора, Заказчик уплачивает пеню из расчета 10% от суммы договора за каждый день просрочки." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="4.3. Меры ответственности сторон, не предусмотренные в настоящем договоре, применяются в соответствии с нормами гражданского законодательства, действующего на территории России." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="4.4. Уплата неустойки не освобождает Исполнителя от выполнения лежащих на нем обязательств или устранения нарушений." TextWrapping="Wrap" FontSize="15" Margin="3"/>
+                        <TextBlock Text="5. Прочие условия" TextWrapping="Wrap" FontWeight="Bold" FontSize="15" Margin="3"/>
+                        <TextBlock Text="5.1. Споры и разногласия, которые могут возникнуть при исполнении настоящего договора, будут по возможности разрешаться путем переговоров между сторонами." TextWrapping="Wrap"  FontSize="15" Margin="3"/>
+                        <TextBlock Text="5.2. В случае невозможности разрешения споров путем переговоров стороны после реализации предусмотренной законодательством процедуры досудебного урегулирования разногласий передают их на рассмотрение в суд по месту нахождения Заказчика." TextWrapping="Wrap"  FontSize="15" Margin="3"/>
+                        <TextBlock Text="5.3. Настоящий договор составлен в двух экземплярах. Оба экземпляра идентичны и имеют одинаковую силу. У каждой из сторон находится один экземпляр настоящего договора." TextWrapping="Wrap"  FontSize="15" Margin="3"/>
+                        <TextBlock Text="6. Реквизиты и подписи сторон" TextWrapping="Wrap" FontWeight="Bold" FontSize="15" Margin="3"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Заказчик: " TextWrapping="Wrap"  FontSize="15" Margin="3" FontWeight="Bold"/>
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="fioKlienta" FontSize="15" HorizontalAlignment="Center"   TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Адрес: " TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="adressKlienta" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center"   TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ИНН/КПП: " TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="INNKlienta" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center"   TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <TextBlock Text="Подпись _________________ Расшифровка подписи __________________________________" TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                        <TextBlock Text="МП"   FontSize="15" Margin="3" />
+
+
+                        <TextBlock Text="Исполнитель:"  TextWrapping="Wrap"  FontSize="15" Margin="3" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ф.И.О. " TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="FIOManager" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center"   TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Паспорт" TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="pasportManager" FontSize="15" TextWrapping="Wrap"  TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Зарегистрирован по адресу: " TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="adressManager" FontSize="15" TextWrapping="Wrap" TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ИНН" TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                            <TextBox BorderBrush="Transparent" FontWeight="Medium"  x:Name="INNManager" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center"   TextDecorations="Underline"  Margin="3" />
+                        </StackPanel>
+                        <TextBlock Text="Подпись _________________ Расшифровка подписи __________________________________" TextWrapping="Wrap"  FontSize="15" Margin="3" />
+                        <TextBlock Text="МП"   FontSize="15" Margin="3" />
+                        <TextBlock/>
+                        <TextBlock/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Стадии разработки" x:Name="stadi">
+                    <DataGrid GridLinesVisibility="None"  Background="White"   VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Name ="dgDataClient1" CanUserAddRows="False" IsReadOnly="True" CanUserDeleteRows="False" AutoGenerateColumns="False" HorizontalAlignment="Stretch"  VerticalAlignment="Top" >
+                        <DataGrid.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90"/>
+                                <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                            </TransformGroup>
+                        </DataGrid.LayoutTransform>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}"
+                BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                                <Setter Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="-90"/>
+                                            <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.CellStyle>
+                            <Style  TargetType="DataGridCell">
+                                <Setter Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="-90"/>
+                                            <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="stagesDev" Header="Стадия разработки" Binding="{Binding Stages.NameStages}" CanUserSort="False"/>
+                            <DataGridTextColumn x:Name="StatusProg" Header="Статус разработки" Binding="{Binding orderStatus.NameOrderStatus}" CanUserSort="False"/>
+                            <DataGridTextColumn x:Name="comment" Header="Комментарии" Binding="{Binding Comments}" CanUserSort="False"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Квитанция" x:Name="kw">
+                    <StackPanel Orientation="Horizontal" x:Name="Kvitanzii" Margin="20">
+                        <StackPanel Orientation="Horizontal">
+                            <Border  BorderBrush="Black" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="Извещение" Margin="5" FontSize="15"/>
+                                    <TextBlock Text="Кассир" Margin="5 270 0 0" FontSize="15"/>
+                                </StackPanel>
+                            </Border>
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Получатель "  Margin="5"/>
+                                        <StackPanel>
+                                            <TextBlock Text="ООО М-Сервис " HorizontalAlignment="Center"  FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                            <TextBlock Text="(Наименование получателя платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="ИНН" Margin="5"/>
+                                            <StackPanel>
+                                                <TextBlock Text=" 2455029960" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(ИНН получателя платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="№ счета" Margin="5"/>
+                                            <StackPanel>
+                                                <TextBlock Text="40702810702100000843" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(номер счета получателя платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="в" Margin="5"/>
+                                            <StackPanel>
+                                                <TextBlock Text="ОАО АКБ Авангард" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(наименование банка получателя платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="БИК" Margin="5"/>
+                                            <StackPanel>
+                                                <TextBlock HorizontalAlignment="Center" Text="04452201" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(номер счета получателя платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Номер кор./сч банка получателя платежа" Margin="5"/>
+                                        <StackPanel>
+                                            <TextBlock Text="3010181000000000201" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel>
+                                                <TextBlock  x:Name="naimenPayment" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(наименование платежа)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <StackPanel>
+                                                <TextBlock x:Name="LC" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                                <TextBlock Text="(№ л.счета (код) пплательщика)" HorizontalAlignment="Center" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="ФИО плательщика" Margin="5"/>
+                                        <TextBlock x:Name="Fiooo" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Адрес плательщика" Margin="5"/>
+                                        <TextBlock  x:Name="Adr" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="сумма платежа" Margin="5"/>
+                                            <TextBlock x:Name="costt" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                            <TextBlock Text="руб" Margin="5"/>
+                                            <TextBlock Text="Сумма платы за услуги" Margin="5"/>
+                                            <TextBlock x:Name="cost5" FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                            <TextBlock Text="руб" Margin="5"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="ИТОГО" Margin="5" VerticalAlignment="Center"  FontWeight="Bold"/>
+                                            <TextBlock x:Name="cost6"  FontWeight="Medium"  TextDecorations="Underline" Margin="5"/>
+                                            <TextBlock Text="руб" Margin="5"/>
+                                            <TextBlock Text="Дата " Margin="100 0 0 0"  VerticalAlignment="Center" />
+                                            <TextBlock x:Name="dateOtch" FontWeight="Medium"  TextDecorations="Underline" Margin="5"   />
+
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <TextBlock Margin="5" Text="С условиями приема указанной в платежном документе суммы ознакомлен и согласен "/>
+                                        <TextBlock Text="Подпись: _________________________ " Margin="5"/>
+                                    </StackPanel>
+                                    <TextBlock/>
+                                </StackPanel>
+
+                            </Border>
+                        </StackPanel>
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

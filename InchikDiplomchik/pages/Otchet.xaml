@@ -1,0 +1,439 @@
+﻿<Page x:Class="InchikDiplomchik.pages.Otchet"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InchikDiplomchik.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="СПРАВОЧНИКИ">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="371*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="Orange"   >
+            <Button x:Name="myCabinet" Background="Transparent" Foreground="White" Click="myCabinet_Click">
+                <StackPanel >
+                    <Image Source="/resources/loginKab.png" Width="30" Margin="5"/>
+                    <TextBlock Text="ПРОФИЛЬ" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="zakaz" Background="Transparent" Foreground="White"  Click="zakaz_Click"   >
+                <StackPanel >
+                    <Image Source="/resources/zakaz (2).png" Width="30" Margin="5"/>
+                    <TextBlock Text="ЗАКАЗЫ" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button  x:Name="klient"  Background="Transparent" Foreground="White" Click="klient_Click">
+                <StackPanel>
+                    <Image Source="/resources/klient.png" Width="30" Margin="5"/>
+                    <TextBlock Text="КЛИЕНТЫ" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button  x:Name="uslug"  Background="Transparent" Foreground="White" Click="uslug_Click" >
+                <StackPanel>
+                    <Image Source="/resources/uslugi.png"  Width="30" Margin="5"/>
+                    <TextBlock Text="УСЛУГИ"  VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="statist"  Background="Transparent" Foreground="White"  Click="statist_Click"  >
+                <StackPanel>
+                    <Image Source="/resources/statistic.png" Width="30" Margin="5"/>
+                    <TextBlock Text="СТАТИСТИКА" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="otchet"  Background="Transparent" Foreground="White" Click="otchet_Click" >
+                <StackPanel >
+                    <Image Source="/resources/otchet.png"  Width="30" Margin="5"/>
+                    <TextBlock Text="СПРАВОЧНИКИ" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Grid>
+                <StackPanel  x:Name="stacButAdmin" Visibility="Hidden">
+                    <Button x:Name="emplButton"  Background="Transparent" Foreground="White" Click="emplButton_Click"  >
+                        <StackPanel >
+                            <Image Source="/resources/klient.png"  Width="30" Margin="5"/>
+                            <TextBlock Text="СОТРУДНИКИ" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <Button.ToolTip>
+                            <ToolTip Foreground="Black" BorderBrush="LightBlue" FontWeight="Bold" VerticalAlignment="Center" Content="Список сотрудников" >
+                                <ToolTip.Background>
+                                    <SolidColorBrush Color="LightBlue" Opacity="0.8"/>
+                                </ToolTip.Background>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button x:Name="hisButton"  Background="Transparent" Foreground="White" Click="hisButton_Click"  >
+                        <StackPanel >
+                            <Image Source="/resources/vremchas.png"  Width="30" Margin="5"/>
+                            <TextBlock Text="ИСТОРИЯ" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <Button.ToolTip>
+                            <ToolTip Foreground="Black" BorderBrush="LightBlue" FontWeight="Bold" VerticalAlignment="Center" Content="История посещения приложения" >
+                                <ToolTip.Background>
+                                    <SolidColorBrush Color="LightBlue" Opacity="0.8"/>
+                                </ToolTip.Background>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Background="Transparent" Margin="10"  Click="exitt_Click" Foreground="White" Width="25"  >
+                        <Image Source="/resources/ex.png"/>
+                        <Button.ToolTip>
+                            <ToolTip Foreground="Black" BorderBrush="LightBlue" FontWeight="Bold" VerticalAlignment="Center" Content="Назад" >
+                                <ToolTip.Background>
+                                    <SolidColorBrush Color="LightBlue" Opacity="0.8"/>
+                                </ToolTip.Background>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+
+                <Button Background="Transparent" Margin="10" x:Name="exitt" Visibility="Visible" VerticalAlignment="Top" Click="exitt_Click" Foreground="White" Width="25"  >
+                    <Image Source="/resources/ex.png"/>
+                    <Button.ToolTip>
+                        <ToolTip Foreground="Black" BorderBrush="LightBlue" FontWeight="Bold" VerticalAlignment="Center" Content="Назад" >
+                            <ToolTip.Background>
+                                <SolidColorBrush Color="LightBlue" Opacity="0.8"/>
+                            </ToolTip.Background>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TabControl x:Name="Dobzakaz" TabStripPlacement="Right" Background="Transparent" BorderBrush="Transparent">
+                <TabItem Header="Добавить заказ" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel>
+
+                        <Border BorderBrush="White" Background="White" CornerRadius="30" HorizontalAlignment="Center" Width="469">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel >
+                                    <StackPanel>
+                                        <StackPanel Margin="5">
+                                                <TextBlock Text="ФИО КЛИЕНТА" FontWeight="Bold" Margin="3" />
+                                                <ComboBox x:Name="klientFIO"   Margin="2"  IsEditable="True" />
+                                            </StackPanel>
+                                      <StackPanel Margin="5" >
+                                            <TextBlock Text="УСЛУГА" FontWeight="Bold" Margin="3"/>
+                                            <ComboBox x:Name="uskega"  Margin="2" SelectionChanged="uskega_SelectionChanged" />
+                                        </StackPanel>
+                                        <StackPanel Margin="5" >
+                                            <TextBlock Text="СКИДКА" FontWeight="Bold" Margin="3"/>
+                                            <ComboBox x:Name="skiddka"    Margin="2" SelectionChanged="skiddka_SelectionChanged"  />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <TextBlock Text="ДАТА" VerticalAlignment="Center" FontWeight="Bold"  Margin="5" />
+                                            <DatePicker Width="121"  x:Name="dateOrder" Margin="5"/>
+                                            <TextBlock Text="СРОК" VerticalAlignment="Center" FontWeight="Bold"  Margin="5"/>
+                                            <DatePicker Width="119"  x:Name="srokOrder" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="5">
+                                            <TextBlock Text="СТАТУС ОПЛАТЫ" FontWeight="Bold" Margin="3" />
+                                            <ComboBox    x:Name="statusOpl" Margin="3"/>
+                                        </StackPanel>
+                                        <StackPanel  Margin="5">
+                                            <TextBlock Text="СТАТУС ЗАКАЗА" FontWeight="Bold" Margin="5"/>
+                                            <ComboBox  x:Name="statusZakaza" Margin="5" />
+                                        </StackPanel>
+                                        <StackPanel  Margin="5">
+                                            <TextBlock Text="ИСПОЛНИТЕЛЬ"  FontWeight="Bold"  Margin="5"/>
+                                            <ComboBox  x:Name="manager" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="5" Orientation="Horizontal">
+                                            <TextBlock Text="ИТОГО К ОПЛАТЕ - " FontWeight="Bold" Margin="3"/>
+                                            <TextBlock x:Name="stoimosto"  Margin="2"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="Button_Click_2"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
+
+                </TabItem>
+                <!-- Используем нестандартное содержимое в заголовке TabItem -->
+
+                <TabItem Header="Добавить клиента" x:Name="Dobklient" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" CornerRadius="30" HorizontalAlignment="Center" Width="469">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel >
+                                    <StackPanel >
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="ФИО КЛИЕНТА" FontWeight="Bold"  />
+                                                <TextBox  Text="{Binding FIO}" x:Name="FIO1"  Height="22" Width="176" />
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="3">
+                                                <StackPanel Orientation="Horizontal" >
+                                                    <TextBlock Text="КОМПАНИЯ" FontWeight="Bold" />
+                                                    <TextBlock Text=" (ПРИ НАЛИЧИИ)" Foreground="DarkGray" FontWeight="Bold"/>
+                                                </StackPanel>
+                                                <TextBox Text="{Binding Name_company}"  x:Name="name_company1"  Height="22" Width="199" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="ИНН" FontWeight="Bold"  />
+                                            <TextBox Text="{Binding INN}" x:Name="inn" Height="22" />
+                                            <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos1" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="НОМЕР ЛИЦЕВОГО СЧЕТА (КОД)" FontWeight="Bold"  />
+                                            <TextBox Text="{Binding PaymentPersonalAccountNumber}" x:Name="PersonalPaymentAcc" Height="22" />
+                                            <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos0" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="АДРЕС" FontWeight="Bold" />
+                                            <TextBox Text="{Binding Address}" x:Name="adres" Height="22" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos2" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="ТЕЛЕФОН" FontWeight="Bold"  />
+                                            <TextBox Text="{Binding Telephone}" x:Name="telephon"  Height="22" />
+                                            <TextBlock Text="*поле должно содержать не больше 11 символов, символы прописываются без пробелов" Foreground="Red"  FontSize="8"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="EMAIL" FontWeight="Bold"  />
+                                            <TextBox Text="{Binding Email}" x:Name="email1"   Height="22" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos3" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="ПАСПОРТНЫЕ ДАННЫЕ" FontWeight="Bold"  />
+                                                <TextBox Text="{Binding Pasport}" x:Name="pasportt"  Height="22" Width="187" />
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos4" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="ДАТА РОЖДЕНИЯ" FontWeight="Bold"  />
+                                                <DatePicker Width="182" Text="{Binding DateOfBirth}" x:Name="dateDateOfBirth"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="3">
+                                            <TextBlock Text="ТИП КЛИЕНТА" FontWeight="Bold" />
+                                            <ComboBox  x:Name="tipZakaza" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button Content="Сохранить" Click="Button_Click" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" />
+                                    </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+               <TabItem Header="Добавить должность"  x:Name="DobPost" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" VerticalAlignment="Center" CornerRadius="30" HorizontalAlignment="Center">
+                            <StackPanel>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="НАИМЕНОВАНИЕ ДОЛЖНОСТИ " FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                    <TextBox Name="tbDol"  Height="22" Margin="5" Text="{Binding NamePost}" />
+                                    <TextBlock Text="*поле обязательно для заполнения" x:Name="podpo6464s" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="СТАВКА" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                        <StackPanel>
+                                            <TextBox Text="{Binding Bet}" Name="tbStav" Width="200" Height="22" Margin="5" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="pod" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <Button x:Name="btnD" Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="btnD_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+               <TabItem Header="Добавить тип клиента" x:Name="DobTipKlient" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" VerticalAlignment="Center" CornerRadius="30" HorizontalAlignment="Center"  Width="301" >
+                            <StackPanel>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="НАИМЕНОВАНИЕ ТИПА КЛИЕНТА" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                    <TextBox Name="tbNameType" Text="{Binding Type}" Height="22" Margin="5"  />
+                                    <TextBlock Text="*поле обязательно для заполнения" x:Name="naimType" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                </StackPanel>
+                                <Button x:Name="btnsave1" Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="btnsave1_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Добавить услугу" x:Name="DobServ" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" CornerRadius="30" HorizontalAlignment="Center" Height="450" >
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel >
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Margin="5" Width="300">
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="НАИМЕНОВАНИЕ УСЛУГИ" FontWeight="Bold"  />
+                                                <TextBox Text="{Binding NameService}" x:Name="nameService" TextWrapping="Wrap" Height="22" />
+                                                <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos1456" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="СТОИМОСТЬ" FontWeight="Bold"  />
+                                                <TextBox  x:Name="costSer" Height="22" />
+                                                <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos9092" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="СКИДКА" FontWeight="Bold"  />
+                                                <ComboBox  x:Name="dis" Height="22"/>
+                                                <TextBlock Text="*поле обязательно для заполнения"  x:Name="podposDis839" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="3">
+                                                <TextBlock Text="ОПИСАНИЕ" FontWeight="Bold" />
+                                                <TextBox  x:Name="desctSer" TextWrapping="Wrap" Height="150" />
+                                                <TextBlock Text="*это поле не обязательно для заполнения" x:Name="podpos3748" Foreground="Green" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Center" Margin="5">
+                                            <!--Button Content="Загрузить изображение" BorderBrush="Orange" Foreground="White" Background="Orange" FontWeight="Bold"  Margin="5" Height="24" /-->
+                                            <Border Margin="5" x:Name="borderIm" BorderBrush="#7DA0CA"   Width="270" Height="275" BorderThickness="1" >
+                                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                                    <Grid>
+                                                        <Button x:Name="dob" Width="40" Height="40"  Background="Transparent" BorderBrush="Transparent" Click="dob_Click" Visibility="Visible">
+                                                            <Image Source="/resources/free-icon-uploading-5946212.png" Width="40"  x:Name="Ic"/>
+                                                        </Button>
+                                                        <Image Source="{Binding Image, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="270" Height="275" x:Name="ImgDoc"/>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </StackPanel>
+                                   <Button Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="Button_Click_1" />
+                                       
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Добавить скидку"  x:Name="DobSkid" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" VerticalAlignment="Center" CornerRadius="30" HorizontalAlignment="Center" Width="257">
+                            <StackPanel>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="ПРОЦЕНТ СКИДКИ" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                    <TextBox Name="tbNameDiscount"  Height="22" Margin="5" />
+                                    <TextBlock Text="*поле обязательно для заполнения" x:Name="naimDiscon" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                </StackPanel>
+                                <Button x:Name="btnsavedis" Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="btnsavedis_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Добавить стадию разработки"  x:Name="DobStages" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" VerticalAlignment="Center" CornerRadius="30" HorizontalAlignment="Center" Width="335" >
+                            <StackPanel>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="НАИМЕНОВАНИЕ СТАДИИ РАЗРАБОТКИ" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                    <TextBox Name="tbstages"   Height="22" Margin="5"/>
+                                    <TextBlock Text="*поле обязательно для заполнения" x:Name="naimstages" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                </StackPanel>
+                                <Button x:Name="btnsavestages" Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="btnsavestages_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Добавить статус истории"  x:Name="DobStatusHistory" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" VerticalAlignment="Center" CornerRadius="30" HorizontalAlignment="Center" Width="451" >
+                            <StackPanel>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="НАИМЕНОВАНИЕ СТАТУСА ДЕЙСТВИЯ ПОЛЬЗОВАТЕЛЯ" FontWeight="Bold" HorizontalAlignment="Center" Margin="5" FontSize="15" />
+                                    <TextBox Name="tbnameHis"  Height="22" Margin="5"/>
+                                    <TextBlock Text="*поле обязательно для заполнения" x:Name="naimHist" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                </StackPanel>
+                                <Button x:Name="btnsaveHis" Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="btnsaveHis_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Добавить сотрудника"  x:Name="DobEmployee" Width="300" FontSize="14"  Height="45" VerticalAlignment="Center" FontWeight="Bold" Background="Orange" Margin="2">
+                    <StackPanel >
+                        <Border BorderBrush="White" Background="White" CornerRadius="30" HorizontalAlignment="Center" Width="469">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <StackPanel >
+                                    <StackPanel >
+                                        <StackPanel Margin="5">
+                                            <TextBlock Text="ФИО СОТРУДНИКА" FontWeight="Bold" Margin="3" />
+                                            <TextBox x:Name="emplFIO" Text="{Binding FIO}"  Margin="2" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podposFio" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                        </StackPanel>
+
+                                        <StackPanel Margin="5" >
+                                            <TextBlock Text="АДРЕС" FontWeight="Bold" Margin="3"/>
+                                            <TextBox x:Name="adress1" Text="{Binding Adress}" Margin="2" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podposAdres1" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+
+                                        </StackPanel>
+                                        <StackPanel Margin="5" >
+                                            <TextBlock Text="ИНН" FontWeight="Bold" Margin="3"/>
+                                            <TextBox x:Name="IN1N" Text="{Binding INN}" Margin="2" />
+                                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podposIN1N" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="ТЕЛЕФОН" FontWeight="Bold"  />
+                                                <TextBox Text="{Binding Telephon}" x:Name="telephon1"  Height="22" />
+                                                <TextBlock TextWrapping="Wrap" Text="*поле должно содержать не больше 11 символов" Foreground="Red" Width="173" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="EMAIL" FontWeight="Bold"  />
+                                                <TextBox Text="{Binding Email}" x:Name="email11"   Height="22" Width="171" />
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos31" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="ПАСПОРТНЫЕ ДАННЫЕ" FontWeight="Bold"  />
+                                                <TextBox Text="{Binding Pasport}" x:Name="pasport1t"  Height="22" Width="187" />
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos14" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="ДАТА РОЖДЕНИЯ" FontWeight="Bold"  />
+                                                <DatePicker Width="182" Text="{Binding DateOfBirth}" x:Name="dateDateOfBirth5"/>
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podposDate" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="5">
+                                            <TextBlock Text="ДОЛЖНОСТЬ" FontWeight="Bold" Margin="3" />
+                                            <ComboBox  x:Name="postCMB" Margin="3"/>
+                                        </StackPanel>
+                                        <StackPanel  Margin="5">
+                                            <TextBlock Text="СТАТУС РАБОТНИКА" FontWeight="Bold" Margin="5"/>
+                                            <ComboBox  x:Name="stEmpl" Margin="5" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" >
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="ЛОГИН" FontWeight="Bold"  Margin="3" />
+                                                <TextBox  x:Name="log" Width="171"  Margin="2" Height="22" />
+                                                <TextBlock TextWrapping="Wrap" Text="*поле обязательно для заполнения" x:Name="podposLog" Visibility="Hidden" Foreground="Red"  FontSize="8"/>
+                                            </StackPanel>
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="ПАРОЛЬ" FontWeight="Bold"  Margin="3" />
+                                                <TextBox x:Name="pas"   Margin="2" Height="22" Width="171" />
+                                                <TextBlock Text="*поле обязательно для заполнения" x:Name="podposPas" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="Button_Click_3" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Grid>
+</Page>

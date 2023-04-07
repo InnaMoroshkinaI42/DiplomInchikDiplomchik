@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище DiplomchikModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArhivStatusEmp">
+          <Key>
+            <PropertyRef Name="ID_ArhivStatus" />
+          </Key>
+          <Property Name="ID_ArhivStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_company" Type="nvarchar(max)" />
+          <Property Name="FIO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pasport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Id_clientType" Type="int" Nullable="false" />
+          <Property Name="PaymentPersonalAccountNumber" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ClientType">
+          <Key>
+            <PropertyRef Name="ID_ClientType" />
+          </Key>
+          <Property Name="ID_ClientType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID_contract" />
+          </Key>
+          <Property Name="ID_contract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataTransaction" Type="date" Nullable="false" />
+          <Property Name="Id_order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISCOUN">
+          <Key>
+            <PropertyRef Name="ID_DISCOUNTT" />
+          </Key>
+          <Property Name="ID_DISCOUNTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_DISC" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_employee" />
+          </Key>
+          <Property Name="ID_employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pasport" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telephon" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Id_post" Type="int" Nullable="false" />
+          <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id_statusJob" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hiistoryy">
+          <Key>
+            <PropertyRef Name="ID_Historyy" />
+          </Key>
+          <Property Name="ID_Historyy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Employee" Type="int" Nullable="false" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="DateEvent" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID_order" />
+          </Key>
+          <Property Name="ID_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_client" Type="int" Nullable="false" />
+          <Property Name="Id_service" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Srok" Type="date" Nullable="false" />
+          <Property Name="Id_paymentStatus" Type="int" Nullable="false" />
+          <Property Name="Id_employee" Type="int" Nullable="false" />
+          <Property Name="Id_orderStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderStatus">
+          <Key>
+            <PropertyRef Name="ID_OrderStatus" />
+          </Key>
+          <Property Name="ID_OrderStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOrderStatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentStatus">
+          <Key>
+            <PropertyRef Name="ID_payment_status" />
+          </Key>
+          <Property Name="ID_payment_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePaymentStatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID_Post" />
+          </Key>
+          <Property Name="ID_Post" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamePost" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Bet" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameService" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id_discount" Type="int" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Photo34" Type="image" />
+        </EntityType>
+        <EntityType Name="Stages">
+          <Key>
+            <PropertyRef Name="ID_stages" />
+          </Key>
+          <Property Name="ID_stages" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStages" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StagesDevelopment">
+          <Key>
+            <PropertyRef Name="ID_StagesOfDevelopment" />
+          </Key>
+          <Property Name="ID_StagesOfDevelopment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Order" Type="int" />
+          <Property Name="Id_stages" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Id_status" Type="int" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StatusHistory">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Client_ClientType">
+          <End Role="ClientType" Type="Self.ClientType" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientType">
+              <PropertyRef Name="ID_ClientType" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="Id_clientType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_order" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ArhivStatusEmp">
+          <End Role="ArhivStatusEmp" Type="Self.ArhivStatusEmp" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArhivStatusEmp">
+              <PropertyRef Name="ID_ArhivStatus" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_statusJob" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID_Post" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hiistoryy_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Hiistoryy" Type="Self.Hiistoryy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_employee" />
+            </Principal>
+            <Dependent Role="Hiistoryy">
+              <PropertyRef Name="Id_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hiistoryy_StatusHistory">
+          <End Role="StatusHistory" Type="Self.StatusHistory" Multiplicity="1" />
+          <End Role="Hiistoryy" Type="Self.Hiistoryy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusHistory">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Hiistoryy">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_employee" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_orderStatus">
+          <End Role="orderStatus" Type="Self.orderStatus" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderStatus">
+              <PropertyRef Name="ID_OrderStatus" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_orderStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_PaymentStatus">
+          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentStatus">
+              <PropertyRef Name="ID_payment_status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_paymentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Service1">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_DISCOUN">
+          <End Role="DISCOUN" Type="Self.DISCOUN" Multiplicity="0..1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCOUN">
+              <PropertyRef Name="ID_DISCOUNTT" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_discount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="StagesDevelopment" Type="Self.StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_order" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_orderStatus1">
+          <End Role="orderStatus" Type="Self.orderStatus" Multiplicity="0..1" />
+          <End Role="StagesDevelopment" Type="Self.StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderStatus">
+              <PropertyRef Name="ID_OrderStatus" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_Stages">
+          <End Role="Stages" Type="Self.Stages" Multiplicity="0..1" />
+          <End Role="StagesDevelopment" Type="Self.StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="ID_stages" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_stages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DiplomchikModelContainer">
+          <EntitySet Name="ArhivStatusEmp" EntityType="Self.ArhivStatusEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientType" EntityType="Self.ClientType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISCOUN" EntityType="Self.DISCOUN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hiistoryy" EntityType="Self.Hiistoryy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderStatus" EntityType="Self.orderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stages" EntityType="Self.Stages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StagesDevelopment" EntityType="Self.StagesDevelopment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusHistory" EntityType="Self.StatusHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Client_ClientType" Association="Self.FK_Client_ClientType">
+            <End Role="ClientType" EntitySet="ClientType" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Order" Association="Self.FK_Contract_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ArhivStatusEmp" Association="Self.FK_Employee_ArhivStatusEmp">
+            <End Role="ArhivStatusEmp" EntitySet="ArhivStatusEmp" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hiistoryy_Employee" Association="Self.FK_Hiistoryy_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Hiistoryy" EntitySet="Hiistoryy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hiistoryy_StatusHistory" Association="Self.FK_Hiistoryy_StatusHistory">
+            <End Role="StatusHistory" EntitySet="StatusHistory" />
+            <End Role="Hiistoryy" EntitySet="Hiistoryy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_orderStatus" Association="Self.FK_Order_orderStatus">
+            <End Role="orderStatus" EntitySet="orderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_PaymentStatus" Association="Self.FK_Order_PaymentStatus">
+            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Service1" Association="Self.FK_Order_Service1">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_DISCOUN" Association="Self.FK_Service_DISCOUN">
+            <End Role="DISCOUN" EntitySet="DISCOUN" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_Order" Association="Self.FK_StagesDevelopment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_orderStatus1" Association="Self.FK_StagesDevelopment_orderStatus1">
+            <End Role="orderStatus" EntitySet="orderStatus" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_Stages" Association="Self.FK_StagesDevelopment_Stages">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DiplomchikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DiplomchikEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArhivStatusEmp" EntityType="DiplomchikModel.ArhivStatusEmp" />
+          <EntitySet Name="Client" EntityType="DiplomchikModel.Client" />
+          <EntitySet Name="ClientType" EntityType="DiplomchikModel.ClientType" />
+          <EntitySet Name="Contract" EntityType="DiplomchikModel.Contract" />
+          <EntitySet Name="DISCOUN" EntityType="DiplomchikModel.DISCOUN" />
+          <EntitySet Name="Employee" EntityType="DiplomchikModel.Employee" />
+          <EntitySet Name="Hiistoryy" EntityType="DiplomchikModel.Hiistoryy" />
+          <EntitySet Name="Order" EntityType="DiplomchikModel.Order" />
+          <EntitySet Name="orderStatus" EntityType="DiplomchikModel.orderStatus" />
+          <EntitySet Name="PaymentStatus" EntityType="DiplomchikModel.PaymentStatus" />
+          <EntitySet Name="Post" EntityType="DiplomchikModel.Post" />
+          <EntitySet Name="Service" EntityType="DiplomchikModel.Service" />
+          <EntitySet Name="Stages" EntityType="DiplomchikModel.Stages" />
+          <EntitySet Name="StagesDevelopment" EntityType="DiplomchikModel.StagesDevelopment" />
+          <EntitySet Name="StatusHistory" EntityType="DiplomchikModel.StatusHistory" />
+          <EntitySet Name="sysdiagrams" EntityType="DiplomchikModel.sysdiagrams" />
+          <AssociationSet Name="FK_Employee_ArhivStatusEmp" Association="DiplomchikModel.FK_Employee_ArhivStatusEmp">
+            <End Role="ArhivStatusEmp" EntitySet="ArhivStatusEmp" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_ClientType" Association="DiplomchikModel.FK_Client_ClientType">
+            <End Role="ClientType" EntitySet="ClientType" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="DiplomchikModel.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Order" Association="DiplomchikModel.FK_Contract_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_DISCOUN" Association="DiplomchikModel.FK_Service_DISCOUN">
+            <End Role="DISCOUN" EntitySet="DISCOUN" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="DiplomchikModel.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hiistoryy_Employee" Association="DiplomchikModel.FK_Hiistoryy_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Hiistoryy" EntitySet="Hiistoryy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Employee" Association="DiplomchikModel.FK_Order_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hiistoryy_StatusHistory" Association="DiplomchikModel.FK_Hiistoryy_StatusHistory">
+            <End Role="StatusHistory" EntitySet="StatusHistory" />
+            <End Role="Hiistoryy" EntitySet="Hiistoryy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_orderStatus" Association="DiplomchikModel.FK_Order_orderStatus">
+            <End Role="orderStatus" EntitySet="orderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_PaymentStatus" Association="DiplomchikModel.FK_Order_PaymentStatus">
+            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Service1" Association="DiplomchikModel.FK_Order_Service1">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_Order" Association="DiplomchikModel.FK_StagesDevelopment_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_orderStatus1" Association="DiplomchikModel.FK_StagesDevelopment_orderStatus1">
+            <End Role="orderStatus" EntitySet="orderStatus" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StagesDevelopment_Stages" Association="DiplomchikModel.FK_StagesDevelopment_Stages">
+            <End Role="Stages" EntitySet="Stages" />
+            <End Role="StagesDevelopment" EntitySet="StagesDevelopment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ArhivStatusEmp">
+          <Key>
+            <PropertyRef Name="ID_ArhivStatus" />
+          </Key>
+          <Property Name="ID_ArhivStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="DiplomchikModel.FK_Employee_ArhivStatusEmp" FromRole="ArhivStatusEmp" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_client" />
+          </Key>
+          <Property Name="ID_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pasport" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_clientType" Type="Int32" Nullable="false" />
+          <Property Name="PaymentPersonalAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClientType" Relationship="DiplomchikModel.FK_Client_ClientType" FromRole="Client" ToRole="ClientType" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="ClientType">
+          <Key>
+            <PropertyRef Name="ID_ClientType" />
+          </Key>
+          <Property Name="ID_ClientType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="DiplomchikModel.FK_Client_ClientType" FromRole="ClientType" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID_contract" />
+          </Key>
+          <Property Name="ID_contract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataTransaction" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_order" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Contract_Order" FromRole="Contract" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="DISCOUN">
+          <Key>
+            <PropertyRef Name="ID_DISCOUNTT" />
+          </Key>
+          <Property Name="ID_DISCOUNTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_DISC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Service" Relationship="DiplomchikModel.FK_Service_DISCOUN" FromRole="DISCOUN" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_employee" />
+          </Key>
+          <Property Name="ID_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pasport" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telephon" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_post" Type="Int32" Nullable="false" />
+          <Property Name="INN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_statusJob" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ArhivStatusEmp" Relationship="DiplomchikModel.FK_Employee_ArhivStatusEmp" FromRole="Employee" ToRole="ArhivStatusEmp" />
+          <NavigationProperty Name="Post" Relationship="DiplomchikModel.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
+          <NavigationProperty Name="Hiistoryy" Relationship="DiplomchikModel.FK_Hiistoryy_Employee" FromRole="Employee" ToRole="Hiistoryy" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Hiistoryy">
+          <Key>
+            <PropertyRef Name="ID_Historyy" />
+          </Key>
+          <Property Name="ID_Historyy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Employee" Type="Int32" Nullable="false" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <Property Name="DateEvent" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="DiplomchikModel.FK_Hiistoryy_Employee" FromRole="Hiistoryy" ToRole="Employee" />
+          <NavigationProperty Name="StatusHistory" Relationship="DiplomchikModel.FK_Hiistoryy_StatusHistory" FromRole="Hiistoryy" ToRole="StatusHistory" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID_order" />
+          </Key>
+          <Property Name="ID_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_client" Type="Int32" Nullable="false" />
+          <Property Name="Id_service" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Srok" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_paymentStatus" Type="Int32" Nullable="false" />
+          <Property Name="Id_employee" Type="Int32" Nullable="false" />
+          <Property Name="Id_orderStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="DiplomchikModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Contract" Relationship="DiplomchikModel.FK_Contract_Order" FromRole="Order" ToRole="Contract" />
+          <NavigationProperty Name="Employee" Relationship="DiplomchikModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="orderStatus" Relationship="DiplomchikModel.FK_Order_orderStatus" FromRole="Order" ToRole="orderStatus" />
+          <NavigationProperty Name="PaymentStatus" Relationship="DiplomchikModel.FK_Order_PaymentStatus" FromRole="Order" ToRole="PaymentStatus" />
+          <NavigationProperty Name="Service" Relationship="DiplomchikModel.FK_Order_Service1" FromRole="Order" ToRole="Service" />
+          <NavigationProperty Name="StagesDevelopment" Relationship="DiplomchikModel.FK_StagesDevelopment_Order" FromRole="Order" ToRole="StagesDevelopment" />
+        </EntityType>
+        <EntityType Name="orderStatus">
+          <Key>
+            <PropertyRef Name="ID_OrderStatus" />
+          </Key>
+          <Property Name="ID_OrderStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOrderStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Order_orderStatus" FromRole="orderStatus" ToRole="Order" />
+          <NavigationProperty Name="StagesDevelopment" Relationship="DiplomchikModel.FK_StagesDevelopment_orderStatus1" FromRole="orderStatus" ToRole="StagesDevelopment" />
+        </EntityType>
+        <EntityType Name="PaymentStatus">
+          <Key>
+            <PropertyRef Name="ID_payment_status" />
+          </Key>
+          <Property Name="ID_payment_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePaymentStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Order_PaymentStatus" FromRole="PaymentStatus" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID_Post" />
+          </Key>
+          <Property Name="ID_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePost" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="DiplomchikModel.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameService" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_discount" Type="Int32" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo34" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="DISCOUN" Relationship="DiplomchikModel.FK_Service_DISCOUN" FromRole="Service" ToRole="DISCOUN" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_Order_Service1" FromRole="Service" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Stages">
+          <Key>
+            <PropertyRef Name="ID_stages" />
+          </Key>
+          <Property Name="ID_stages" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStages" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StagesDevelopment" Relationship="DiplomchikModel.FK_StagesDevelopment_Stages" FromRole="Stages" ToRole="StagesDevelopment" />
+        </EntityType>
+        <EntityType Name="StagesDevelopment">
+          <Key>
+            <PropertyRef Name="ID_StagesOfDevelopment" />
+          </Key>
+          <Property Name="ID_StagesOfDevelopment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Order" Type="Int32" />
+          <Property Name="Id_stages" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Id_status" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="DiplomchikModel.FK_StagesDevelopment_Order" FromRole="StagesDevelopment" ToRole="Order" />
+          <NavigationProperty Name="orderStatus" Relationship="DiplomchikModel.FK_StagesDevelopment_orderStatus1" FromRole="StagesDevelopment" ToRole="orderStatus" />
+          <NavigationProperty Name="Stages" Relationship="DiplomchikModel.FK_StagesDevelopment_Stages" FromRole="StagesDevelopment" ToRole="Stages" />
+        </EntityType>
+        <EntityType Name="StatusHistory">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Hiistoryy" Relationship="DiplomchikModel.FK_Hiistoryy_StatusHistory" FromRole="StatusHistory" ToRole="Hiistoryy" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Employee_ArhivStatusEmp">
+          <End Type="DiplomchikModel.ArhivStatusEmp" Role="ArhivStatusEmp" Multiplicity="1" />
+          <End Type="DiplomchikModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArhivStatusEmp">
+              <PropertyRef Name="ID_ArhivStatus" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_statusJob" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_ClientType">
+          <End Type="DiplomchikModel.ClientType" Role="ClientType" Multiplicity="1" />
+          <End Type="DiplomchikModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientType">
+              <PropertyRef Name="ID_ClientType" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="Id_clientType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Type="DiplomchikModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_client" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Order">
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DiplomchikModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_order" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_DISCOUN">
+          <End Type="DiplomchikModel.DISCOUN" Role="DISCOUN" Multiplicity="0..1" />
+          <End Type="DiplomchikModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCOUN">
+              <PropertyRef Name="ID_DISCOUNTT" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_discount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Type="DiplomchikModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="DiplomchikModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID_Post" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hiistoryy_Employee">
+          <End Type="DiplomchikModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="DiplomchikModel.Hiistoryy" Role="Hiistoryy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_employee" />
+            </Principal>
+            <Dependent Role="Hiistoryy">
+              <PropertyRef Name="Id_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Employee">
+          <End Type="DiplomchikModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_employee" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hiistoryy_StatusHistory">
+          <End Type="DiplomchikModel.StatusHistory" Role="StatusHistory" Multiplicity="1" />
+          <End Type="DiplomchikModel.Hiistoryy" Role="Hiistoryy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusHistory">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Hiistoryy">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_orderStatus">
+          <End Type="DiplomchikModel.orderStatus" Role="orderStatus" Multiplicity="1" />
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderStatus">
+              <PropertyRef Name="ID_OrderStatus" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_orderStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_PaymentStatus">
+          <End Type="DiplomchikModel.PaymentStatus" Role="PaymentStatus" Multiplicity="1" />
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentStatus">
+              <PropertyRef Name="ID_payment_status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_paymentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Service1">
+          <End Type="DiplomchikModel.Service" Role="Service" Multiplicity="1" />
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_Order">
+          <End Type="DiplomchikModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="DiplomchikModel.StagesDevelopment" Role="StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_order" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_orderStatus1">
+          <End Type="DiplomchikModel.orderStatus" Role="orderStatus" Multiplicity="0..1" />
+          <End Type="DiplomchikModel.StagesDevelopment" Role="StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orderStatus">
+              <PropertyRef Name="ID_OrderStatus" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StagesDevelopment_Stages">
+          <End Type="DiplomchikModel.Stages" Role="Stages" Multiplicity="0..1" />
+          <End Type="DiplomchikModel.StagesDevelopment" Role="StagesDevelopment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stages">
+              <PropertyRef Name="ID_stages" />
+            </Principal>
+            <Dependent Role="StagesDevelopment">
+              <PropertyRef Name="Id_stages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DiplomchikModelContainer" CdmEntityContainer="DiplomchikEntities">
+          <EntitySetMapping Name="ArhivStatusEmp">
+            <EntityTypeMapping TypeName="DiplomchikModel.ArhivStatusEmp">
+              <MappingFragment StoreEntitySet="ArhivStatusEmp">
+                <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
+                <ScalarProperty Name="ID_ArhivStatus" ColumnName="ID_ArhivStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="DiplomchikModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="PaymentPersonalAccountNumber" ColumnName="PaymentPersonalAccountNumber" />
+                <ScalarProperty Name="Id_clientType" ColumnName="Id_clientType" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Pasport" ColumnName="Pasport" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Name_company" ColumnName="Name_company" />
+                <ScalarProperty Name="ID_client" ColumnName="ID_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientType">
+            <EntityTypeMapping TypeName="DiplomchikModel.ClientType">
+              <MappingFragment StoreEntitySet="ClientType">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID_ClientType" ColumnName="ID_ClientType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract">
+            <EntityTypeMapping TypeName="DiplomchikModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Id_order" ColumnName="Id_order" />
+                <ScalarProperty Name="DataTransaction" ColumnName="DataTransaction" />
+                <ScalarProperty Name="ID_contract" ColumnName="ID_contract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISCOUN">
+            <EntityTypeMapping TypeName="DiplomchikModel.DISCOUN">
+              <MappingFragment StoreEntitySet="DISCOUN">
+                <ScalarProperty Name="NAME_DISC" ColumnName="NAME_DISC" />
+                <ScalarProperty Name="ID_DISCOUNTT" ColumnName="ID_DISCOUNTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="DiplomchikModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id_statusJob" ColumnName="Id_statusJob" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Id_post" ColumnName="Id_post" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Pasport" ColumnName="Pasport" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="ID_employee" ColumnName="ID_employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hiistoryy">
+            <EntityTypeMapping TypeName="DiplomchikModel.Hiistoryy">
+              <MappingFragment StoreEntitySet="Hiistoryy">
+                <ScalarProperty Name="DateEvent" ColumnName="DateEvent" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+                <ScalarProperty Name="ID_Historyy" ColumnName="ID_Historyy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="DiplomchikModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Id_orderStatus" ColumnName="Id_orderStatus" />
+                <ScalarProperty Name="Id_employee" ColumnName="Id_employee" />
+                <ScalarProperty Name="Id_paymentStatus" ColumnName="Id_paymentStatus" />
+                <ScalarProperty Name="Srok" ColumnName="Srok" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_service" ColumnName="Id_service" />
+                <ScalarProperty Name="Id_client" ColumnName="Id_client" />
+                <ScalarProperty Name="ID_order" ColumnName="ID_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderStatus">
+            <EntityTypeMapping TypeName="DiplomchikModel.orderStatus">
+              <MappingFragment StoreEntitySet="orderStatus">
+                <ScalarProperty Name="NameOrderStatus" ColumnName="NameOrderStatus" />
+                <ScalarProperty Name="ID_OrderStatus" ColumnName="ID_OrderStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentStatus">
+            <EntityTypeMapping TypeName="DiplomchikModel.PaymentStatus">
+              <MappingFragment StoreEntitySet="PaymentStatus">
+                <ScalarProperty Name="NamePaymentStatus" ColumnName="NamePaymentStatus" />
+                <ScalarProperty Name="ID_payment_status" ColumnName="ID_payment_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="DiplomchikModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Bet" ColumnName="Bet" />
+                <ScalarProperty Name="NamePost" ColumnName="NamePost" />
+                <ScalarProperty Name="ID_Post" ColumnName="ID_Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="DiplomchikModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Photo34" ColumnName="Photo34" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Id_discount" ColumnName="Id_discount" />
+                <ScalarProperty Name="NameService" ColumnName="NameService" />
+                <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stages">
+            <EntityTypeMapping TypeName="DiplomchikModel.Stages">
+              <MappingFragment StoreEntitySet="Stages">
+                <ScalarProperty Name="NameStages" ColumnName="NameStages" />
+                <ScalarProperty Name="ID_stages" ColumnName="ID_stages" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StagesDevelopment">
+            <EntityTypeMapping TypeName="DiplomchikModel.StagesDevelopment">
+              <MappingFragment StoreEntitySet="StagesDevelopment">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Id_status" ColumnName="Id_status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_stages" ColumnName="Id_stages" />
+                <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
+                <ScalarProperty Name="ID_StagesOfDevelopment" ColumnName="ID_StagesOfDevelopment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusHistory">
+            <EntityTypeMapping TypeName="DiplomchikModel.StatusHistory">
+              <MappingFragment StoreEntitySet="StatusHistory">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DiplomchikModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+﻿<Page x:Class="InchikDiplomchik.pages.AddKlient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InchikDiplomchik.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ДОБАВЛЕНИЕ / РЕДАКТИРОВАНИЕ КЛИЕНТА">
+
+    <Border BorderBrush="White" Background="White" CornerRadius="30" HorizontalAlignment="Center" Width="469">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel >
+                <StackPanel >
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="3">
+                            <TextBlock Text="ФИО КЛИЕНТА" FontWeight="Bold"  />
+                            <TextBox  Text="{Binding FIO}" x:Name="FIO1"  Height="22" Width="176" TextChanged="FIO1_TextChanged" />
+                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                        </StackPanel>
+                        <StackPanel Margin="3">
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="КОМПАНИЯ" FontWeight="Bold" />
+                                <TextBlock Text=" (ПРИ НАЛИЧИИ)" Foreground="DarkGray" FontWeight="Bold"/>
+                            </StackPanel>
+                            <TextBox Text="{Binding Name_company}"  x:Name="name_company1"  Height="22" Width="199" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="ИНН" FontWeight="Bold"  />
+                        <TextBox Text="{Binding INN}" PreviewTextInput="inn_PreviewTextInput" MaxLength="12" x:Name="inn" Height="22" />
+                        <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos1" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="НОМЕР ЛИЦЕВОГО СЧЕТА (КОД)" FontWeight="Bold"  />
+                        <TextBox Text="{Binding PaymentPersonalAccountNumber}" PreviewTextInput="PersonalPaymentAcc_PreviewTextInput"  MaxLength="20" x:Name="PersonalPaymentAcc" Height="22"  />
+                        <TextBlock Text="*поле обязательно для заполнения"  x:Name="podpos0" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="АДРЕС" FontWeight="Bold" />
+                        <TextBox Text="{Binding Address}" x:Name="adres" Height="22" />
+                        <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos2" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="ТЕЛЕФОН" FontWeight="Bold"  />
+                        <TextBox Text="{Binding Telephone}" PreviewTextInput="inn_PreviewTextInput"  x:Name="telephon" MaxLength="11" Height="22" />
+                        <TextBlock Text="*поле должно содержать не больше 11 символов, символы прописываются без пробелов" Foreground="Red"  FontSize="8"/>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="EMAIL" FontWeight="Bold"  />
+                        <TextBox Text="{Binding Email}" x:Name="email1"   Height="22" />
+                        <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos3" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="3">
+                            <TextBlock Text="ПАСПОРТНЫЕ ДАННЫЕ" FontWeight="Bold"  />
+                            <TextBox Text="{Binding Pasport}" PreviewTextInput="inn_PreviewTextInput"  x:Name="pasportt" MaxLength="10"  Height="22" Width="187" />
+                            <TextBlock Text="*поле обязательно для заполнения" x:Name="podpos4" Foreground="Red" Visibility="Hidden" FontSize="8"/>
+                        </StackPanel>
+                        <StackPanel Margin="3">
+                            <TextBlock Text="ДАТА РОЖДЕНИЯ" FontWeight="Bold"  />
+                            <DatePicker Width="182"  x:Name="dateDateOfBirth"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="3">
+                        <TextBlock Text="ТИП КЛИЕНТА" FontWeight="Bold" />
+                        <ComboBox DisplayMemberPath="Type" SelectedItem="{Binding ClientType}" x:Name="tipZakaza" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Сохранить" Foreground="White" Background="Orange" FontWeight="Bold" Width="172" Height="37" FontSize="20" Margin="5" Click="Button_Click_1"/>
+                    <Button Content="Отмена" Margin="5" Width="172" Height="37" FontSize="20" FontWeight="Bold" Background="Orange" Foreground="White" Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Page>
+
